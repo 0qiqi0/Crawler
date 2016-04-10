@@ -27,9 +27,6 @@ exports.article=function(list,callback){
 
 
 
-
-
-
 /*测试代码
 exports.article([{
     name:'爱情',url:'sun',cid:3
