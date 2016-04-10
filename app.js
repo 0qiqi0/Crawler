@@ -58,3 +58,14 @@ app.use(function(err, req, res, next) {
 
 
 module.exports = app;
+//子进程用来拉数据
+var spawn=require('child_process').spawn;
+var cronJob=require('cron').CronJob;
+var job=new cronJob('*/30 * * * * *',function(){
+  var child=spawn(process.execPath,['../task/main.js']);
+  //把子进程的标准输出的数据传递到主进程的输出
+  child.stdout.pipe(process.stdout);
+  child.stderr.pipe(process.stderr);
+});
+job.start();
+

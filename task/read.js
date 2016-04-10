@@ -25,18 +25,16 @@ exports.category=function(url,callback){
                 name:$me.text().trim(),//trim是去掉空格
                 url:$me.attr('href')
             }
-            //console.log(item.url);
-            //var result=item.url.match(//);
-            var params=regParams(item.url);
-            item.id=params.b;
-            items.push(item);
-            //console.log(item);
+                //console.log(item.url);
+                //var result=item.url.match(//);
+                var params=regParams(item.url);
+                item.id=params.b;
+                items.push(item);
+                //console.log(item);
         })
         callback(null,items);
     });
 }
-
-
 
 function regParams(url){
     var obj={};
@@ -52,7 +50,7 @@ function regParams(url){
     return obj;
 }
 
-exports.article=function(url,callback){
+exports.article=function(url,cid,callback){
     request({url:url,encoding:null},function(err,res,body){
         if(err){
             return console.error(err);
@@ -66,10 +64,13 @@ exports.article=function(url,callback){
             var $me=$(this);
             var item={
                 name:$me.text().trim(),//trim是去掉空格
-                url:$me.attr('href')
+                url:$me.attr('href'),
+                cid:cid
             }
-            //console.log(item);
-            items.push(item);
+            if(item.name != 'search'){
+                //console.log(item);
+                items.push(item);
+            }
         })
         callback(null,items);
     });

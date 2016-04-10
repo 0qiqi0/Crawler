@@ -1,0 +1,21 @@
+{
+  "name": "crawl",
+  "description": "",
+  "main": "",
+  "authors": [
+    "0qiqi0 <1483593015@qq.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/0qiqi0/Crawler",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}
